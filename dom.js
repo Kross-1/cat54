@@ -43,60 +43,62 @@ const cats = [
     }
 ];
 
-const style = document.createElement("style");
-style.innerHTML = `
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #f8f9fa;
-    }
-    .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 20px;
-        justify-items: center;
-    }
-    .cat-card {
-        width: 250px;
-        background: white;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-    .cat-card:hover {
-        transform: scale(1.1) rotate(3deg);
-    }
-    .cat-card img {
-        width: 100%;
-        border-radius: 10px;
-        transition: transform 0.3s ease;
-    }
-    .cat-card img:hover {
-        transform: rotate(-3deg);
-    }
-`;
-document.head.appendChild(style);
-
-const app = document.getElementById("app");
-const title = document.createElement("h1");
-title.innerText = "Наши котики";
-app.appendChild(title);
-
-const container = document.createElement("div");
-container.classList.add("container");
-app.appendChild(container);
-
-cats.forEach(cat => {
-    const catCard = document.createElement("div");
-    catCard.classList.add("cat-card");
-    catCard.innerHTML = `
-        <img src="${cat.img_link}" alt="${cat.name}">
-        <h3>${cat.name}</h3>
-        <p>Возраст: ${cat.age}</p>
-        <p>Рейтинг: ${cat.rate}/10</p>
-        <p>${cat.description}</p>
+document.addEventListener("DOMContentLoaded", function () {
+    const style = document.createElement("style");
+    style.innerHTML = `
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+        .cat-card {
+            width: 250px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .cat-card:hover {
+            transform: scale(1.1) rotate(3deg);
+        }
+        .cat-card img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .cat-card img:hover {
+            transform: rotate(-3deg);
+        }
     `;
-    container.appendChild(catCard);
+    document.head.appendChild(style);
+
+    const app = document.getElementById("app");
+    const title = document.createElement("h1");
+    title.innerText = "Наши котики";
+    app.appendChild(title);
+
+    const container = document.createElement("div");
+    container.classList.add("container");
+    app.appendChild(container);
+
+    cats.forEach(cat => {
+        const catCard = document.createElement("div");
+        catCard.classList.add("cat-card");
+        catCard.innerHTML = `
+            <img src="${cat.img_link}" alt="${cat.name}">
+            <h3>${cat.name}</h3>
+            <p>Возраст: ${cat.age}</p>
+            <p>Рейтинг: ${cat.rate}/10</p>
+            <p>${cat.description}</p>
+        `;
+        container.appendChild(catCard);
+    });
 });
