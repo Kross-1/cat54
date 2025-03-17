@@ -1,4 +1,3 @@
-
 const cats = [
     {
         "name": "Лара",
@@ -44,7 +43,6 @@ const cats = [
     }
 ];
 
-// ДОБАВЛЯЕМ СТИЛИ В ДОКУМЕНТ
 const style = document.createElement("style");
 style.innerHTML = `
     body {
@@ -81,7 +79,6 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-// СОЗДАЕМ СТРУКТУРУ СТРАНИЦЫ
 const app = document.getElementById("app");
 const title = document.createElement("h1");
 title.innerText = "Наши котики";
