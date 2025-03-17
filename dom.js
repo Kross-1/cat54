@@ -1,4 +1,4 @@
-// ДАННЫЕ О КОТАХ (6 штук)
+
 const cats = [
     {
         "name": "Лара",
@@ -91,7 +91,6 @@ const container = document.createElement("div");
 container.classList.add("container");
 app.appendChild(container);
 
-// ОТРИСОВЫВАЕМ КАРТОЧКИ С КОТАМИ
 cats.forEach(cat => {
     const catCard = document.createElement("div");
     catCard.classList.add("cat-card");
